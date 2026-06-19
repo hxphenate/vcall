@@ -8,7 +8,7 @@ Designed to be forked and built on top of.
 
 ## How it works
 
-vcall uses WebRTC for the actual audio stream — the media travels directly between the two peers. The signaling server (`server.js`) is a WebSocket relay whose only job is to exchange the offer, answer, and ICE candidates needed to establish that peer connection. Once the call is live, the server is out of the picture.
+vcall uses WebRTC for the actual audio stream. The media travels directly between the two peers. The signaling server (`server.js`) is a WebSocket relay whose only job is to exchange the offer, answer, and ICE candidates needed to establish that peer connection. Once the call is live, the server is out of the picture.
 
 ```
 caller                  server                  callee
@@ -30,10 +30,10 @@ caller                  server                  callee
 
 ```
 vcall/
-├── server.js          # WebSocket signaling server (Node.js)
-├── package.json
-└── client/
-    └── index.html     # Entire frontend — HTML, CSS, JS in one file
+ server.js          # WebSocket signaling server (Node.js)
+ package.json
+ client/
+  index.html     # Entire frontend — HTML, CSS, JS in one file
 ```
 
 ---
@@ -94,7 +94,7 @@ The `PORT` environment variable is set automatically by Render.
 
 ### Client
 
-The client is a single static HTML file with zero build step. Deploy it anywhere that serves static files — Netlify, Vercel, GitHub Pages, Cloudflare Pages, or just drop it in an S3 bucket.
+The client is a single static HTML file with zero build step. Deploy it anywhere that serves static files. Netlify, Vercel, GitHub Pages, Cloudflare Pages, or just drop it in an S3 bucket.
 
 Before deploying, set `WS_URL` in `index.html` to point at your deployed signaling server using `wss://` (secure WebSocket, required when the client is served over HTTPS):
 
@@ -115,7 +115,7 @@ const WS_URL = 'wss://your-signaling-server.com';  // Your deployed server
 const STUN  = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] };
 ```
 
-`STUN` is passed directly to `RTCPeerConnection`. You can swap in any STUN/TURN configuration here — see the TURN section below.
+`STUN` is passed directly to `RTCPeerConnection`. You can swap in any STUN/TURN configuration here. see the TURN section below.
 
 ### Adding TURN support
 
