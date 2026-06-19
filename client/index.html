@@ -312,12 +312,11 @@
   <div class="wordmark">wssc-web</div>
 
   <div class="screen active" id="screen-home">
-    <div class="screen-label">voice · text · end-to-end · p2p</div>
-    <button class="btn btn-primary" onclick="generateCall()">new call</button>
+    <button class="btn btn-primary" onclick="generateCall()">new room</button>
     <div class="divider">or</div>
     <div style="width:100%;display:flex;flex-direction:column;gap:12px;">
       <input type="text" id="join-code" placeholder="enter code" maxlength="12" autocomplete="off" spellcheck="false" />
-      <button class="btn btn-outline" onclick="joinCall()">join</button>
+      <button class="btn btn-outline" onclick="joinCall()">join room</button>
     </div>
     <div class="status" id="home-status"></div>
   </div>
@@ -339,7 +338,7 @@
   <div class="screen" id="screen-call">
     <div class="call-visual" id="call-avatar">🔊</div>
     <div class="call-timer" id="call-timer">00:00</div>
-    <div class="mute-indicator" id="mute-indicator">live</div>
+    <div class="mute-indicator" id="mute-indicator">connected</div>
     <div class="call-controls">
       <button class="btn btn-outline" id="mute-btn" onclick="toggleMute()">mute</button>
       <button class="btn btn-danger" onclick="hangUp()">end</button>
